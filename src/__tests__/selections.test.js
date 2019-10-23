@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from '../../enzyme';
+import { shallow, mount } from '../enzyme';
 import { useMouseLocation, useMouseStatus, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseSelection, useSelectOffset} from '../selections'
 import { HookWrapper, HookForceWrapper } from '@jadesrochers/reacthelpers'
 import { act } from 'react-dom/test-utils';

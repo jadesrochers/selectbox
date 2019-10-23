@@ -1,6 +1,6 @@
 import React from 'react';
 import * as R from 'ramda';
-import { mount } from '../../enzyme';
+import { mount } from '../enzyme';
 import { act } from 'react-dom/test-utils';
 import { matchers } from 'jest-emotion'
 import { SelectBase, SelectXYRect, SetBarxLimits, SelectXRect } from '../../selectbox'

@@ -2,10 +2,9 @@
 import { jsx } from '@emotion/core'
 import * as R from 'ramda';
 import { useMemo } from 'react';
-import { passExceptChildren } from '../passprops'
 import { useTrackSvgBounds,  useSvgXSizing, useSvgYSizing, useMouseLocation, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseStatus, useMouseSelection, useSelectOffset, getEventX, getEventY } from './src/selections'
 import fm from '@jadesrochers/functionalmonads';
-import { roundtenth } from '@jadesrochers/reacthelpers'
+import { roundtenth, passExceptChildren } from '@jadesrochers/reacthelpers'
 
 
 const selectStyle={fill: '#808080', opacity: '0.3', cursor: 'crosshair'}
