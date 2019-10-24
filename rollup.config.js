@@ -1,0 +1,37 @@
+import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import filesize from 'rollup-plugin-filesize';
+
+export default {
+    input: './selectbox.js',
+    external: ['react', 'react-dom', 'ramda'],
+    output: [
+      {
+          file: './dist/cjs.js',
+          format: 'cjs',
+          name: 'bundle',
+      },
+      {
+          file: './dist/esm.js',
+          format: 'esm',
+      },
+      {
+        file: './dist/iife.js',
+        format: 'iife',
+        name: 'bundle',
+        globals: {
+          'ramda': 'ramda',
+          'react': 'React'
+        }
+      }
+    ],
+    plugins: [
+        babel({
+            exclude: 'node_modules/**'
+        }),
+        resolve(),
+        commonjs(),
+        filesize(),
+    ]
+}
