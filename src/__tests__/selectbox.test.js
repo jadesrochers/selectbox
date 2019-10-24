@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import { mount } from '../enzyme';
 import { act } from 'react-dom/test-utils';
 import { matchers } from 'jest-emotion'
-import { SelectBase, SelectXYRect, SetBarxLimits, SelectXRect } from '../../selectbox'
+import { SelectBase, SelectXYRect, SetBarxLimits, SelectXRect } from '../selectbox'
 import { SvgWrapper } from '@jadesrochers/reacthelpers'
 
 // Adds emotion matcher directly to jest.

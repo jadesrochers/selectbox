@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import * as R from 'ramda';
 import { useMemo } from 'react';
-import { useTrackSvgBounds,  useSvgXSizing, useSvgYSizing, useMouseLocation, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseStatus, useMouseSelection, useSelectOffset, getEventX, getEventY } from './src/selections'
+import { useTrackSvgBounds,  useSvgXSizing, useSvgYSizing, useMouseLocation, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseStatus, useMouseSelection, useSelectOffset, getEventX, getEventY } from './selections'
 import fm from '@jadesrochers/functionalmonads';
 import { roundtenth, passExceptChildren } from '@jadesrochers/reacthelpers'
 
