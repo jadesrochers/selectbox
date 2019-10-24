@@ -8,16 +8,16 @@ export default {
     external: ['react', 'react-dom', 'ramda'],
     output: [
       {
-          file: './dist/cjs.js',
+          file: './build/cjs.js',
           format: 'cjs',
           name: 'bundle',
       },
       {
-          file: './dist/esm.js',
+          file: './build/esm.js',
           format: 'esm',
       },
       {
-        file: './dist/iife.js',
+        file: './build/iife.js',
         format: 'iife',
         name: 'bundle',
         globals: {
