@@ -4,7 +4,6 @@
     "license": "MIT",
     "author": "Jared Desrochers",
     "main": "build/cjs.js",
-    "browser": "build/iife.js",
     "module": "build/esm.js",
     "repository": {
         "type": "git",
@@ -18,7 +17,7 @@
     "dependencies": {
         "@emotion/core": "^10.0.22",
         "@jadesrochers/functionalmonads": "^0.1.0",
-        "@jadesrochers/reacthelpers": "^0.1.10",
+        "@jadesrochers/reacthelpers": "^0.1.11",
         "ramda": "^0.26.1"
     },
     "peerdependencies": {
