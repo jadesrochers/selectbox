@@ -18,7 +18,7 @@
     "dependencies": {
         "@emotion/core": "^10.0.22",
         "@jadesrochers/functionalmonads": "^0.1.0",
-        "@jadesrochers/reacthelpers": "^0.1.8",
+        "@jadesrochers/reacthelpers": "^0.1.10",
         "ramda": "^0.26.1"
     },
     "peerdependencies": {
@@ -36,7 +36,7 @@
         "babel-loader": "^8.0.6",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.13.0",
-        "eslint": "^6.4.0",
+        "eslint": "^6.6.0",
         "eslint-config-problems": "^3.0.1",
         "jest": "^24.9.0",
         "jest-emotion": "^10.0.11",
