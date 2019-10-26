@@ -125,8 +125,8 @@ const useMouseSelection = () => {
   const [dragy, setdragy] = useState(0)
   const setselection = (ismousedown, startx, starty, x, y) => {
     if( ismousedown ){
-      setyselect( Math.abs(y - starty) )
-      setxselect( Math.abs(x - startx) )
+      setyselect( Math.abs(roundtenth(y - starty)) )
+      setxselect( Math.abs(roundtenth(x - startx)) )
       setdragx(x)
       setdragy(y)
     }

@@ -121,7 +121,7 @@ const SelectBase = (props) => {
 
       onClick={(e) => {
         let [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
-        mouseclick(x, y) 
+        if(Math.abs(x-props.startx)<2 && Math.abs(y-props.starty)<2){ mouseclick(x, y) }
         }
       }
       onMouseMove={(e) => {
