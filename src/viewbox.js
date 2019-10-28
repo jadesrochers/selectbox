@@ -16,13 +16,13 @@ const ViewBoxZoomPan = (props) => {
 
   return(
   <svg key='viewbox' width={props.width} height={props.height} viewBox={props.viewBox}
-   css={{transform: `scale(${props.scale}) translate(${props.shiftxpct},${props.shiftypct})`}}
+   css={[ {transform: `scale(${props.scale}) translate(${props.shiftxpct},${props.shiftypct})`},
+     (props.cssStyles ? props.cssStyles : undefined)]}
   >
     { propsToChildren }
   </svg>
  )
-}
-
+} 
 // The Const viewbox keeps the same svg visible as the size changes.
 // Means it scales the svg up and down with the page.
 const ViewBoxConst = (props) => {
@@ -31,6 +31,7 @@ const ViewBoxConst = (props) => {
   const propsToChildren = passExceptChildren(pass)
   return(
   <svg key='viewbox' width={props.width} height={props.height} viewBox={props.viewBox}
+    css={[ (props.cssStyles ? props.cssStyles : undefined)]}
   >
     { propsToChildren }
   </svg>

@@ -21,6 +21,18 @@ const SelectXRect = (props) => {
   )
 }
 
+const SelectYRect = (props) => {
+  return(
+    <rect 
+       css={[ selectStyle,
+       {transform: `translate(0px, ${props.offy}px)` },
+       (props.cssStyles ? props.cssStyles : undefined)]}
+      width={props.width} height={props.selecty}
+    >
+    </rect>
+  )
+}
+
 const SelectXYRect = (props) => {
   return(
       <rect 
@@ -171,4 +183,4 @@ const SelectBase = (props) => {
   )
 }
 
-export { SelectBase, SelectXRect, SelectXYRect, MouseRect, SetBarxLimits, isBarHighlightedX }
+export { SelectBase, SelectXRect, SelectYRect, SelectXYRect, MouseRect, SetBarxLimits, isBarHighlightedX }
