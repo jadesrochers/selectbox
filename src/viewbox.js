@@ -9,7 +9,7 @@ import { passExceptChildren } from '@jadesrochers/reacthelpers'
 // is correctly set up.
 const ViewBoxZoomPan = (props) => {
 
-  let pass = R.omit(['height','width'])(props)
+  let pass = R.omit(['height','width','cssStyles'])(props)
   const propsToChildren = passExceptChildren(pass)
   useMemo(()=> {
   props.pan(props.trackBounds, props.x-props.startx, props.y-props.starty, props.ismousedown) }, [props.dragx, props.dragy, props.ismousedown ])
@@ -27,7 +27,7 @@ const ViewBoxZoomPan = (props) => {
 // Means it scales the svg up and down with the page.
 const ViewBoxConst = (props) => {
 
-  let pass = R.omit(['height','width'])(props)
+  let pass = R.omit(['height','width','cssStyles'])(props)
   const propsToChildren = passExceptChildren(pass)
   return(
   <svg key='viewbox' width={props.width} height={props.height} viewBox={props.viewBox}

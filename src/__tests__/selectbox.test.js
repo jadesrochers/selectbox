@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import { mount } from '../enzyme';
 import { act } from 'react-dom/test-utils';
 import { matchers } from 'jest-emotion'
-import { SelectBase, SelectXYRect, SetBarxLimits, SelectXRect } from '../selectbox'
+import { SelectBase, SelectXYRect, SetBarxLimits, SelectXRect, SelectYRect } from '../selectbox'
 import { SvgWrapper } from '@jadesrochers/reacthelpers'
 
 // Adds emotion matcher directly to jest.
@@ -67,7 +67,7 @@ describe('SelectBase tests', () => {
     let wrapper = mount( 
       <SelectBase key='selectbox' width={100} height={100}>
         <SvgWrapper key='svgwrap'>
-          <SelectXRect key='selectxy' height={100} /> 
+          <SelectXRect key='selectx' height={100} /> 
         </SvgWrapper>
       </SelectBase>
       ) 
@@ -115,6 +115,60 @@ describe('SelectBase tests', () => {
     expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(10px,0px)") 
 
   });
+
+  test('Use a selectbase with a selectYrect', () => {
+    let wrapper = mount( 
+      <SelectBase key='selectbox' width={100} height={100}>
+        <SvgWrapper key='svgwrap'>
+          <SelectYRect key='selecty' width={100} /> 
+        </SvgWrapper>
+      </SelectBase>
+      ) 
+
+
+    let mousedown = wrapper.find('div').props().onMouseDown;
+    let fakee = { clientX: 25, clientY: 25 }
+    act(() => {
+      mousedown(fakee)
+    })
+    wrapper.update()
+
+    let mousemove = wrapper.find('div').props().onMouseMove;
+    act(() => {
+      mousemove({clientX: 50, clientY: 50})
+    })
+    wrapper.update()
+    /* console.log('Updated wrapper 1: ',wrapper.debug()) */
+    expect(wrapper.find('rect').containsMatchingElement(
+      <rect width={100} height={25} />)
+    ).toBeTruthy()
+    expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(0px,25px)") 
+    
+
+    mousemove = wrapper.find('div').props().onMouseMove;
+    act(() => {
+      mousemove({clientX: 75, clientY: 75})
+    })
+    wrapper.update()
+
+    expect(wrapper.find('rect').containsMatchingElement(
+      <rect width={100} height={50} />)
+    ).toBeTruthy()
+    expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(0px,25px)") 
+
+    mousemove = wrapper.find('div').props().onMouseMove;
+    act(() => {
+      mousemove({clientX: 10, clientY: 10})
+    })
+    wrapper.update()
+
+    expect(wrapper.find('rect').containsMatchingElement(
+      <rect width={100} height={15} />)
+    ).toBeTruthy()
+    expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(0px,10px)") 
+
+  });
+
 
 
   test('Use selectbase with x limit setter', () => {
