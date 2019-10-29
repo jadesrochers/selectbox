@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
 
 export default {
-    input: './index.js',
+    input: './main.js',
     external: ['react', 'react-dom', 'ramda'],
     output: [
       {
