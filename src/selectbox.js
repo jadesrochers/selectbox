@@ -53,6 +53,8 @@ const MouseRect = (props) => {
   return(
     <rect 
     ref={props.trackBounds.measuredRef}
+    x={(props.x ? props.x : 0)}
+    y={(props.y ? props.y : 0)}
     css={{visibility: 'hidden', opacity:0, cursor: cursortype, pointerEvents: 'all'}} width={props.width} height={props.height}>
     </rect>
   )
