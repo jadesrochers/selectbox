@@ -27,7 +27,7 @@ const thresholdscale = R.curry((scale, input) => R.pipe(
   thresholdlimit(input),
 )(scale))
 
-const useZoomPan = (max=2, min=1) => {
+const useZoomPan = (max=2, min=1, viewx=100, viewy=100 ) => {
   const [ shiftxpct, setxshift ] = useState("0%")
   const [ shiftypct, setyshift ] = useState("0%")
   const endxpct = useRef(0)
@@ -61,8 +61,8 @@ const useZoomPan = (max=2, min=1) => {
     }
   }
   const pan = (trackBounds, x, y, ismousedown) => {
-    let offx = roundtenth((x / trackBounds.width)*100 + endxpct.current)
-    let offy = roundtenth((y / trackBounds.height)*100 + endypct.current)
+    let offx = roundtenth((x / viewx)/(scale)*100 + endxpct.current)
+    let offy = roundtenth((y / viewy)/(scale)*100 + endypct.current)
     offx = thresholdscale(scale, offx)
     offy = thresholdscale(scale, offy)
 
