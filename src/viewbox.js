@@ -12,7 +12,7 @@ const ViewBoxZoomPan = (props) => {
   let pass = R.omit(['height','width','cssStyles'])(props)
   const propsToChildren = passExceptChildren(pass)
   useMemo(()=> {
-  props.pan(props.trackBounds, props.x-props.startx, props.y-props.starty, props.ismousedown) }, [props.dragx, props.dragy, props.ismousedown ])
+  props.pan(props.x-props.startx, props.y-props.starty, props.ismousedown) }, [props.dragx, props.dragy, props.ismousedown ])
 
   return(
   <svg key='viewbox' width={props.width} height={props.height} viewBox={props.viewBox}

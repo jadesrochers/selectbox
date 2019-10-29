@@ -60,7 +60,7 @@ const useZoomPan = (max=2, min=1, viewx=100, viewy=100 ) => {
       endypct.current = thresholdscale(updatescale, endypct.current)
     }
   }
-  const pan = (trackBounds, x, y, ismousedown) => {
+  const pan = (x, y, ismousedown) => {
     let offx = roundtenth((x / viewx)/(scale)*100 + endxpct.current)
     let offy = roundtenth((y / viewy)/(scale)*100 + endypct.current)
     offx = thresholdscale(scale, offx)

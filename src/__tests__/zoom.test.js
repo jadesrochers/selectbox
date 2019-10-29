@@ -13,7 +13,7 @@ describe('useZoom hook tests', () => {
     /*   zoomin={zoomin} zoomout={zoomout} */
     /* />) */ 
 
-    let wrapper = shallow(<HookWrapper hook={() => useZoomPan(3, 0.4)}  />)
+    let wrapper = shallow(<HookWrapper hook={() => useZoomPan(3, 0.4, 100, 100)}  />)
     /* console.log('ViewBoxZoomPan debug: ',wrapper.debug()) */
     let hook = wrapper.find('div').props().hook;
     expect(hook.scale).toEqual(1)
@@ -31,14 +31,14 @@ describe('useZoom hook tests', () => {
     hook.pan({width: 100, height: 50}, 10, 5, true)
 
     hook = wrapper.find('div').props().hook
-    expect(hook.shiftxpct).toEqual("8%")
-    expect(hook.shiftypct).toEqual("8%")
+    expect(hook.shiftxpct).toEqual("5%")
+    expect(hook.shiftypct).toEqual("1%")
 
     // The offsetlimit is 15% at scale(1.4), and this will run into that.
     hook.pan({width: 100, height: 50}, 20, 10, false)
     hook = wrapper.find('div').props().hook
-    expect(hook.shiftxpct).toEqual("15%")
-    expect(hook.shiftypct).toEqual("15%")
+    expect(hook.shiftxpct).toEqual("12%")
+    expect(hook.shiftypct).toEqual("5%")
 
     // Since the last action set the end (false) this will
     // move from that end point.
@@ -46,8 +46,8 @@ describe('useZoom hook tests', () => {
     hook.pan({width: 100, height: 50}, -10, -5, true)
 
     hook = wrapper.find('div').props().hook
-    expect(hook.shiftxpct).toEqual("5%")
-    expect(hook.shiftypct).toEqual("5%")
+    expect(hook.shiftxpct).toEqual("4%")
+    expect(hook.shiftypct).toEqual("1%")
 
     hook = wrapper.find('div').props().hook
     hook.zoomout()
