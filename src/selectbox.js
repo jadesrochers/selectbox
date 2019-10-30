@@ -55,9 +55,11 @@ const MouseRect = (props) => {
     ref={props.trackBounds.measuredRef}
     x='0' y='0'
     css={[
-      {visibility: 'hidden', opacity:0, cursor: cursortype, pointerEvents: 'all'},
+      {fill: 'none', cursor: cursortype, pointerEvents: 'all'},
       props.cssStyles ? props.cssStyles : undefined
-      ]}width={props.width} height={props.height}>
+      ]}
+      width={props.width} height={props.height}
+    >
     </rect>
   )
 }
@@ -160,6 +162,12 @@ const SelectBase = (props) => {
         mouseup(dragx, dragy) 
         }
       }
+      onMouseLeave={(e) => {
+        if(! ismousedown){ return }
+        setmousedown(false)
+        mouseup(dragx, dragy)
+        }
+      }
 
       onTouchStart={(e) =>  {
         setmousedown(true)
@@ -181,6 +189,13 @@ const SelectBase = (props) => {
         mouseup(dragx, dragy) 
         }
       }
+      onTouchCancel={(e) => {
+        if(! ismousedown){ return }
+        setmousedown(false) 
+        mouseup(dragx, dragy) 
+        }
+      }
+
    >
       { propsToChildren }
    </div>
