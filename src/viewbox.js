@@ -16,6 +16,7 @@ const ViewBoxZoomPan = (props) => {
 
   return(
   <svg key='viewbox' width={props.width} height={props.height} viewBox={props.viewBox}
+   ref={props.svgref ? props.svgref : undefined}  
    css={[ {transform: `scale(${props.scale}) translate(${props.shiftxpct},${props.shiftypct})`},
      (props.cssStyles ? props.cssStyles : undefined)]}
   >
@@ -31,6 +32,7 @@ const ViewBoxConst = (props) => {
   const propsToChildren = passExceptChildren(pass)
   return(
   <svg key='viewbox' width={props.width} height={props.height} viewBox={props.viewBox}
+    ref={props.svgref ? props.svgref : undefined}
     css={[ (props.cssStyles ? props.cssStyles : undefined)]}
   >
     { propsToChildren }
