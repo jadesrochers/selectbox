@@ -12,7 +12,10 @@
     "description": "A React Component for making interactive SVG elements",
     "keywords": [
         "react",
-        "svg"
+        "svg",
+	"hooks",
+	"interactive",
+	"zoom"
     ],
     "dependencies": {
         "@emotion/core": "^10.0.22",
