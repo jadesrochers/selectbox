@@ -8,7 +8,9 @@ describe('Location hook tests', () => {
 
   test('Test useMouseLocation', () => {
  
-    //HookForceWrapper uses a dummy state var to force updates
+    // HookForceWrapper uses a dummy state var to force updates
+    // Use this when the hooks uses Refs to track some variables,
+    // because they will not result in updates.  
     let wrapper = mount(<HookForceWrapper  hook={() => useMouseLocation()}  />) 
     let hook = wrapper.find('div').props().hook;
     let update = wrapper.find('HookWrapper').props().forceupdate;

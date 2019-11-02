@@ -56,7 +56,7 @@ has values when using `<MouseRect>` or when you set it manually.
 
 **Interactive illustration of how these vars work -**
 It shows the values of all variables SelectBase passes to children.  
-[Check out a demonstration sandbox](https://codesandbox.io/s/select-zoom-pan-demo-vjxgi)
+[Check out a demonstration sandbox](https://codesandbox.io/s/zoom-pan-interactreact-vjxgi)
 
 #### Setting up SVG viewboxes   
 selectbox exports two options; one supports zooming and panning, the other  
@@ -98,8 +98,7 @@ const Test = (props) => {
 }
 ```
 **Codesandboxes showing the ZoomPan and Const variants -**
-[Zoom and pan the svg](https://codesandbox.io/s/select-zoom-pan-demo-vjxgi)
-[Svg cannot zoom/pan, but still scales if size changes](https://codesandbox.io/s/selectbox-animation-demo-0fozk)
+[Use pointer info to interact with animation](https://codesandbox.io/s/animation-interactivereacthooks-0fozk)
 
 
 #### Making select and viewbox work together requires coordination   
@@ -229,5 +228,5 @@ const TestSelect = (props) => {
 ```
 
 #### Demo and code for this -  
-[Demo the selection Rectangles](https://codesandbox.io/s/selectbox-rectangles-d40c4)
+[Demo the selection Rectangles](https://codesandbox.io/s/draw-rectangles-interactivereact-d40c4)
 

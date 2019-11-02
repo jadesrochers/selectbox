@@ -13,11 +13,12 @@
     "keywords": [
         "react",
         "svg",
-	"hooks",
-	"interactive",
-	"zoom"
+        "hooks",
+        "interactive",
+        "zoom"
     ],
     "dependencies": {
+        "@babel/runtime": "^7.6.3",
         "@emotion/core": "^10.0.22",
         "@jadesrochers/functionalmonads": "^0.1.0",
         "@jadesrochers/reacthelpers": "^0.1.11",
@@ -33,6 +34,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.6.4",
+        "@babel/plugin-transform-runtime": "^7.6.2",
         "@babel/preset-env": "^7.6.3",
         "@babel/preset-react": "^7.6.3",
         "babel-loader": "^8.0.6",
@@ -40,6 +42,8 @@
         "enzyme-adapter-react-16": "^1.13.0",
         "eslint": "^6.6.0",
         "eslint-config-problems": "^3.0.1",
+        "eslint-plugin-react": "^7.16.0",
+        "eslint-plugin-react-hooks": "^2.2.0",
         "jest": "^24.9.0",
         "jest-emotion": "^10.0.11",
         "react": "^16.11.0",
