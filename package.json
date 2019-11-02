@@ -21,7 +21,7 @@
         "@babel/runtime": "^7.6.3",
         "@emotion/core": "^10.0.22",
         "@jadesrochers/functionalmonads": "^0.1.0",
-        "@jadesrochers/reacthelpers": "^0.1.11",
+        "@jadesrochers/reacthelpers": "^0.1.14",
         "ramda": "^0.26.1"
     },
     "peerdependencies": {
@@ -48,7 +48,7 @@
         "jest-emotion": "^10.0.11",
         "react": "^16.11.0",
         "react-dom": "^16.11.0",
-        "rollup": "^1.26.0",
+        "rollup": "^1.26.3",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-filesize": "^6.2.1",
