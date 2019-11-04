@@ -49,7 +49,7 @@ const SelectXYRect = (props) => {
 // the dimensions to reset the height/width/top/left if the node size
 // changes. Part of the trackBounds hook that passes the size info elsewhere.
 const MouseRect = (props) => {
-  let cursortype = props.cursor ? props.cursor : 'crosshair'
+  const cursortype = props.cursor ? props.cursor : 'crosshair'
   return(
     <rect 
     ref={props.trackBounds.measuredRef}
@@ -66,7 +66,7 @@ const MouseRect = (props) => {
 
 const isBarHighlightedX = R.curry((xpair, offx, endx) => {
   let highlight = false
-  let midpt = R.mean(R.values(xpair))
+  const midpt = R.mean(R.values(xpair))
   if(offx < midpt && endx > midpt){
     highlight = true 
   }
@@ -144,7 +144,7 @@ const SelectBase = (props) => {
       }
       onMouseMove={(e) => {
         if(! ismousedown){ return }
-        let [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
+        const [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
         mousemove(x, y)
         setselection(ismousedown, startx, starty, x, y) 
         setoff(ismousedown, startx, starty, x, y) 
@@ -152,7 +152,7 @@ const SelectBase = (props) => {
       }
       onMouseDown={(e) => {
         setmousedown(true)
-        let [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
+        const [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
         mousemove(x, y)
         mousedown(x, y)
         }
@@ -171,14 +171,14 @@ const SelectBase = (props) => {
 
       onTouchStart={(e) =>  {
         setmousedown(true)
-        let [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
+        const [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
         mousemove(x, y)
         mousedown(x, y)
         }
       }
       onTouchMove={(e) => {
         if(! ismousedown){ return }
-        let [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
+        const [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
         mousemove(x, y)
         setselection(ismousedown, startx, starty, x, y) 
         setoff(ismousedown, startx, starty, x, y) 
