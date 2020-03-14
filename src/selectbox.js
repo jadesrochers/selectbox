@@ -3,7 +3,7 @@ import { css, jsx } from '@emotion/core'
 import * as R from 'ramda';
 import React, { useMemo } from 'react';
 import { useTrackSvgBounds,  useSvgXSizing, useSvgYSizing, useMouseLocation, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseStatus, useMouseSelection, useSelectOffset, getEventX, getEventY } from './selections'
-import fm from '@jadesrochers/functionalmonads';
+/* import fm from '@jadesrochers/functionalmonads'; */
 import { passExceptChildren } from '@jadesrochers/reacthelpers'
 
 const roundtenth = (n) => (Math.round(n*10)/10)
@@ -75,13 +75,13 @@ const isBarHighlightedX = R.curry((xpair, offx, endx) => {
 })
 
 const BarXlimits = R.curry((setlimits, pairs, startx, endx) => { 
-  return fm.pipeMayFalsy(
+  return R.pipe(
     R.filter(pair => isBarHighlightedX(pair, startx, endx)),
-    (arr) => (arr.length ? arr : 0),
+    (arr) => (arr.length ? arr : [{a: -9999, b: 9999}]),
     R.map(R.values),
     R.flatten,
     (vals) => ([vals.reduce(R.min), vals.reduce(R.max)]),
-    setlimits, 
+    (mm) => ((mm[0] === -9999 && mm[1] === 9999) ? 0 : setlimits(mm)), 
   )(pairs)
 })
 
@@ -216,4 +216,4 @@ const SelectBase = (props) => {
   )
 }
 
-export { SelectBase, SelectXRect, SelectYRect, SelectXYRect, MouseRect, SetBarxLimits, isBarHighlightedX }
+export { SelectBase, SelectXRect, SelectYRect, SelectXYRect, MouseRect, SetBarxLimits, isBarHighlightedX, BarXlimits }

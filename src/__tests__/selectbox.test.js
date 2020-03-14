@@ -170,7 +170,6 @@ describe('SelectBase tests', () => {
   });
 
 
-
   test('Use selectbase with x limit setter', () => {
     let limitcall = jest.fn()
     let limitHook = {setLimits: jest.fn(R.curry((a,b) => limitcall(a,b)))}
