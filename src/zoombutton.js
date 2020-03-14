@@ -53,7 +53,6 @@ const MinusCircle = (props) => {
 
 // Expects a limitHook and resets it to a large range
 const ZoomButtons = (props) => {
-  console.log('Props to ZoomButtons: ', props) 
   return(
    <div style={{ width: '122px', height: '60px' }} >
        <button 
