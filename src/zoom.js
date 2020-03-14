@@ -1,28 +1,28 @@
 import  { useState, useRef } from 'react'
-import * as R from 'ramda'
+import { pipe, curry, max, min } from 'ramda'
 import { roundtenth } from '@jadesrochers/reacthelpers'
 
-const thresholdlimit = R.curry((input, th) => R.pipe(
+const thresholdlimit = curry((input, th) => pipe(
     parseInt,
-    R.max(-th),
-    R.min(th),
+    max(-th),
+    min(th),
     Math.round,
   )(input))
 
 const offsetlimit = (scale) => Math.round(100 - (100 * Math.pow(1.5,-(scale - 1))))
 
-const topct = R.pipe(
+const topct = pipe(
   parseInt,
   (arg) => `${arg}%`,
 )
 
-const thresholdscalepct = R.curry((scale, input) => R.pipe(
+const thresholdscalepct = curry((scale, input) => pipe(
   offsetlimit,
   thresholdlimit(input),
   topct,
 )(scale))
 
-const thresholdscale = R.curry((scale, input) => R.pipe(
+const thresholdscale = curry((scale, input) => pipe(
   offsetlimit,
   thresholdlimit(input),
 )(scale))

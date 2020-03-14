@@ -1,11 +1,12 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
+import { css, jsx } from '@emotion/core'
 import * as R from 'ramda';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useTrackSvgBounds,  useSvgXSizing, useSvgYSizing, useMouseLocation, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseStatus, useMouseSelection, useSelectOffset, getEventX, getEventY } from './selections'
 import fm from '@jadesrochers/functionalmonads';
-import { roundtenth, passExceptChildren } from '@jadesrochers/reacthelpers'
+import { passExceptChildren } from '@jadesrochers/reacthelpers'
 
+const roundtenth = (n) => (Math.round(n*10)/10)
 
 const selectStyle={fill: '#808080', opacity: '0.3', cursor: 'crosshair'}
 
@@ -85,15 +86,28 @@ const BarXlimits = R.curry((setlimits, pairs, startx, endx) => {
 })
 
 
+// This Component sets up an svg element that will nest, so not the best 
+// idea there perhaps.
+// That aside, its job is to use information passed to it about
+// histogram bars (uses props.plotData) to determine which bars have
+// been selected, and set those values using the limitHook setLimits() fcn.
+// The children should be a SelectX/YRect to show the highlighted area
+// and a Mouserect if you want the cursor change, and possibly for event capture.
+// It had an onClick() listener, but I could not see any reason this
+// should have been there.
+// IMPROVE: I think it needs to have some behavior specified to deal with
+// mouseout scenarios. Maybe clear limits, or set them, when mouse leaves.
+// This relates to the problem with the histogram reset button.
 const SetBarxLimits = (props) => {
   const propsToChildren = passExceptChildren(props)
+      /* onClick={(e) => { */
+      /*   BarXlimits(props.limitHook.setLimits('x'), props.plotData, props.offx, (props.offx + props.selectx) ) */
+      /*   } */
+      /* } */
+
   return(
     <svg
       onMouseUp={(e) => {
-        BarXlimits(props.limitHook.setLimits('x'), props.plotData, props.offx, (props.offx + props.selectx) )
-        }
-      }
-      onClick={(e) => {
         BarXlimits(props.limitHook.setLimits('x'), props.plotData, props.offx, (props.offx + props.selectx) )
         }
       }
@@ -106,8 +120,8 @@ const SetBarxLimits = (props) => {
 }
 
 const getEventXY = (xsizing, ysizing, trackBounds, e) => {
-  let x = roundtenth(xsizing * (getEventX(e) - trackBounds.left))
-  let y = roundtenth(ysizing * (getEventY(e) - trackBounds.top))
+  const x = roundtenth(xsizing * (getEventX(e) - trackBounds.left))
+  const y = roundtenth(ysizing * (getEventY(e) - trackBounds.top))
   return [x, y]
 }
 
@@ -127,7 +141,7 @@ const SelectBase = (props) => {
     xsizehook.calcxscale(props.sizex, trackBounds.width)
     ysizehook.calcyscale(props.sizey, trackBounds.height)
   }, [trackBounds.width, trackBounds.height])
-  let pass = R.omit(['width', 'height', 'cssStyles'])(props)
+  const pass = R.omit(['width', 'height', 'cssStyles'])(props)
   const propsToChildren = passExceptChildren({...pass, x, y, startx, starty, endx, endy, clickx, clicky, selectx, selecty, offx, offy, dragx, dragy, trackBounds, setselection, ismousedown }, props.children) 
  
   return(
@@ -138,7 +152,7 @@ const SelectBase = (props) => {
         ]}
 
       onClick={(e) => {
-        let [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
+        const [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)
         if(Math.abs(x-startx)<2 && Math.abs(y-starty)<2){ mouseclick(x, y) }
         }
       }

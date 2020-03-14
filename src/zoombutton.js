@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import React from "react";
+import { css, jsx } from '@emotion/core'
 import * as R from 'ramda';
 
 const activeState = css`
