@@ -45,8 +45,9 @@ const config = {
       commonjs: 'react',
       amd: 'react',
     },
-    'react-dom': 'react-dom',
-    'reactDOM': 'react-dom',
+    'ramda': 'ramda', 
+    '@jadesrochers/reacthelpers': '@jadesrochers/reacthelpers', 
+    '@emotion/core':'@emotion/core',
   },
 
 
