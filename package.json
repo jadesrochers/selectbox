@@ -4,7 +4,7 @@
     "license": "MIT",
     "author": "Jared Desrochers",
     "module": "es/index.js",
-    "main": "dist/geomap-umd.js",
+    "main": "dist/selectbox-umd.js",
     "sideEffects": false,
     "repository": {
         "type": "git",
