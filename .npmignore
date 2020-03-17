@@ -1,0 +1,5 @@
+/demo
+/src/__test__
+rollup.config.js
+webpack.config.js
+.babelrc

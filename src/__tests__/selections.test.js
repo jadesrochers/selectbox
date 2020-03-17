@@ -13,8 +13,8 @@ describe('Location hook tests', () => {
     // because they will not result in updates.  
     let wrapper = mount(<HookForceWrapper  hook={() => useMouseLocation()}  />) 
     let hook = wrapper.find('div').props().hook;
-    /* console.log('wrapper.debug() for hookforcewrapper: ', wrapper.debug()) */
-    let update = wrapper.find('lt').props().forceupdate;
+    console.log('wrapper.debug() for hookforcewrapper: ', wrapper.debug())
+    let update = wrapper.find('j').props().forceupdate;
     expect(hook.x).toEqual(0)
     expect(hook.y).toEqual(0)
     hook.mousemove(10, 15)
@@ -138,7 +138,7 @@ describe('Location hook tests', () => {
 
     let wrapper = mount(<HookForceWrapper hook={() => useSelectOffset()}  />) 
     let hook = wrapper.find('div').props().hook;
-    let update = wrapper.find('lt').props().forceupdate;
+    let update = wrapper.find('j').props().forceupdate;
 
     expect(hook.offx).toEqual(0)
     expect(hook.offy).toEqual(0)
