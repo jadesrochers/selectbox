@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useMemo } from 'react'
+import React, { useMemo, useEffect } from 'react'
 import { omit } from 'ramda'
 import { css, jsx } from '@emotion/core'
 import { passExceptChildren } from '@jadesrochers/reacthelpers'
@@ -11,8 +11,9 @@ const ViewBoxZoomPan = (props) => {
 
   const pass = omit(['height','width','cssStyles'])(props)
   const propsToChildren = passExceptChildren(pass)
-  useMemo(()=> {
-  props.pan(props.x-props.startx, props.y-props.starty, props.ismousedown) }, [props.dragx, props.dragy, props.ismousedown ])
+  useEffect(()=> {
+    props.pan(props.x-props.startx, props.y-props.starty, props.ismousedown) 
+  }, [props.dragx, props.dragy, props.ismousedown ])
 
   return(
   <svg key='viewbox' width={props.width} height={props.height} viewBox={props.viewBox}

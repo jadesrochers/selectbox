@@ -167,11 +167,12 @@ const SelectboxAnimate = props => {
           viewBox={`0 0 ${xsize} ${ysize}`}
         >
           <MouseRect
+            key="mouserect"
             width="100%"
             height="100%"
             cssStyles={{ stroke: "#2c3737", strokeWidth: "2px" }}
           />
-          <OrbitSvg orbitref={orbitref} />
+          <OrbitSvg key={'orbitsvg'} orbitref={orbitref} />
         </ViewBoxConst>
       </SelectBase>
     </div>
