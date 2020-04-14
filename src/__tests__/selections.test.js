@@ -13,7 +13,7 @@ describe('Location hook tests', () => {
     // because they will not result in updates.  
     let wrapper = mount(<HookForceWrapper  hook={() => useMouseLocation()}  />) 
     let hook = wrapper.find('div').props().hook;
-    console.log('wrapper.debug() for hookforcewrapper: ', wrapper.debug())
+    /* console.log('wrapper.debug() for hookforcewrapper: ', wrapper.debug()) */
     let update = wrapper.find('j').props().forceupdate;
     expect(hook.x).toEqual(0)
     expect(hook.y).toEqual(0)

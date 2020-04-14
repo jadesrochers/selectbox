@@ -26,19 +26,19 @@ describe('useZoom hook tests', () => {
     // check the default offset that keeps things centered as you zoom.
     hook = wrapper.find('div').props().hook
     expect(hook.scale).toEqual(1.4)
-    expect(hook.shiftxpct).toEqual("-2%")
-    expect(hook.shiftypct).toEqual("-2%")
+    expect(hook.shiftxpct).toEqual("-0.8%")
+    expect(hook.shiftypct).toEqual("-0.8%")
     hook.pan(10, 5, true)
 
     hook = wrapper.find('div').props().hook
-    expect(hook.shiftxpct).toEqual("5%")
-    expect(hook.shiftypct).toEqual("1%")
+    expect(hook.shiftxpct).toEqual("6%")
+    expect(hook.shiftypct).toEqual("2%")
 
     // The offsetlimit is 15% at scale(1.4), and this will run into that.
     hook.pan(20, 10, false)
     hook = wrapper.find('div').props().hook
-    expect(hook.shiftxpct).toEqual("12%")
-    expect(hook.shiftypct).toEqual("5%")
+    expect(hook.shiftxpct).toEqual("13%")
+    expect(hook.shiftypct).toEqual("6%")
 
     // Since the last action set the end (false) this will
     // move from that end point.
@@ -46,8 +46,8 @@ describe('useZoom hook tests', () => {
     hook.pan(-10, -5, true)
 
     hook = wrapper.find('div').props().hook
-    expect(hook.shiftxpct).toEqual("4%")
-    expect(hook.shiftypct).toEqual("1%")
+    expect(hook.shiftxpct).toEqual("5%")
+    expect(hook.shiftypct).toEqual("2%")
 
     hook = wrapper.find('div').props().hook
     hook.zoomout()

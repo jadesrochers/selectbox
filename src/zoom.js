@@ -27,7 +27,7 @@ const thresholdscale = curry((scale, input) => pipe(
   thresholdlimit(input),
 )(scale))
 
-const useZoomPan = (max=2, min=1, viewx=100, viewy=100 ) => {
+const useZoomPan = (max=3, min=1, viewx=100, viewy=100 ) => {
   const [ shiftxpct, setxshift ] = useState("0%")
   const [ shiftypct, setyshift ] = useState("0%")
   const endxpct = useRef(0)
@@ -37,7 +37,7 @@ const useZoomPan = (max=2, min=1, viewx=100, viewy=100 ) => {
   const zoomin = () => {
     let updatescale = scale + 0.2
     // Simple scaling of scale * -5 keeps map centered during zoom.
-    let defaultmove = 0.2 * -5 
+    let defaultmove = 0.2 * -4 
     if(updatescale <= max){
       let shiftx = parseInt(shiftxpct) + defaultmove
       let shifty = parseInt(shiftypct) + defaultmove
