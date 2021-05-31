@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React, { useMemo, useEffect } from 'react'
 import { omit } from 'ramda'
-import { css, jsx } from '@emotion/core'
+import { css, jsx } from '@emotion/react'
 import { passExceptChildren } from '@jadesrochers/reacthelpers'
 
 // Viewbox needs to go within a SelectBase to get mouse information.

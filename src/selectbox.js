@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core'
+import { css, jsx } from '@emotion/react'
 import * as R from 'ramda';
 import React, { useMemo } from 'react';
 /* import fm from '@jadesrochers/functionalmonads'; */

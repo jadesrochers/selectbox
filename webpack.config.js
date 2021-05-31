@@ -47,7 +47,7 @@ const config = {
     },
     'ramda': 'ramda', 
     '@jadesrochers/reacthelpers': '@jadesrochers/reacthelpers', 
-    '@emotion/core':'@emotion/core',
+    '@emotion/react':'@emotion/react',
   },
 
 

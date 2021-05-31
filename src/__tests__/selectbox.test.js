@@ -2,7 +2,7 @@ import React from 'react';
 import * as R from 'ramda';
 import { mount } from '../enzyme';
 import { act } from 'react-dom/test-utils';
-import { matchers } from 'jest-emotion'
+import { matchers } from '@emotion/jest'
 import { SelectBase, SelectXYRect, SetBarxLimits, SelectXRect, SelectYRect } from '../selectbox'
 import { SvgWrapper } from '@jadesrochers/reacthelpers'
 
@@ -142,7 +142,7 @@ describe('SelectBase tests', () => {
     expect(wrapper.find('rect').containsMatchingElement(
       <rect width={100} height={25} />)
     ).toBeTruthy()
-    expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(0px,25px)") 
+    expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(0px, 25px)") 
     
 
     mousemove = wrapper.find('div').props().onMouseMove;
@@ -154,7 +154,7 @@ describe('SelectBase tests', () => {
     expect(wrapper.find('rect').containsMatchingElement(
       <rect width={100} height={50} />)
     ).toBeTruthy()
-    expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(0px,25px)") 
+    expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(0px, 25px)") 
 
     mousemove = wrapper.find('div').props().onMouseMove;
     act(() => {
@@ -165,7 +165,7 @@ describe('SelectBase tests', () => {
     expect(wrapper.find('rect').containsMatchingElement(
       <rect width={100} height={15} />)
     ).toBeTruthy()
-    expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(0px,10px)") 
+    expect(wrapper.find('rect')).toHaveStyleRule("transform","translate(0px, 10px)") 
 
   });
 

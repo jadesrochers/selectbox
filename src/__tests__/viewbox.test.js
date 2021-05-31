@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from '../enzyme';
 import { ViewBoxZoomPan, ViewBoxConst } from '../viewbox';
-import { matchers } from 'jest-emotion'
+import { matchers } from '@emotion/jest'
 
 expect.extend(matchers)
 

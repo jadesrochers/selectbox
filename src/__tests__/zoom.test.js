@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow } from '../enzyme';
 import { useZoomPan } from '../zoom';
-import { matchers } from 'jest-emotion'
+import { matchers } from '@emotion/jest'
 import { HookWrapper, HookForceWrapper } from '@jadesrochers/reacthelpers'
 
 expect.extend(matchers)
