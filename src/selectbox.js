@@ -147,6 +147,7 @@ const SelectBase = (props) => {
  
   return(
    <div  
+      alt='base select box'
       css={[ 
         {width: props.width, height: props.height, overflow:"hidden"},
          props.cssStyles ? props.cssStyles : undefined 

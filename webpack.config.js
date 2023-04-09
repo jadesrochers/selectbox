@@ -8,48 +8,47 @@ const path = require('path');
 // Webpack will still include a ref to it, so you need the externals:
 // statement for sure.
 const config = {
-  entry: './src/index.js',
+    entry: './src/index.js',
 
-  mode: 'production',
+    mode: 'production',
 
-  optimization: {
-    usedExports: true,
-  },
-
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    library: '@jadesrochers/selectbox',
-    filename: 'bundle.js',
-    libraryTarget: 'umd',
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        include: [
-          path.resolve(__dirname, 'src'),
-        ],
-        use: {
-          loader: 'babel-loader',
-        }
-      },
-    ],
-  },
-
-  externals: {
-    'react': {
-      root: 'React',
-      commonjs2: 'react',
-      commonjs: 'react',
-      amd: 'react',
+    optimization: {
+        usedExports: true,
     },
-    'ramda': 'ramda', 
-    '@jadesrochers/reacthelpers': '@jadesrochers/reacthelpers', 
-    '@emotion/react':'@emotion/react',
-  },
 
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        library: '@jadesrochers/selectbox',
+        filename: 'bundle.js',
+        libraryTarget: 'umd',
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                include: [
+                    path.resolve(__dirname, 'src'),
+                ],
+                use: {
+                    loader: 'babel-loader',
+                }
+            },
+        ],
+    },
+
+    externals: {
+        'react': {
+            root: 'React',
+            commonjs2: 'react',
+            commonjs: 'react',
+            amd: 'react',
+        },
+        'ramda': 'ramda', 
+        '@jadesrochers/reacthelpers': '@jadesrochers/reacthelpers', 
+        '@emotion/react':'@emotion/react',
+    },
 
 }
 
