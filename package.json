@@ -46,7 +46,7 @@
         "test": "BABEL_ENV=jest jest",
         "test-watch": "BABEL_ENV=jest jest --watch",
         "build-es": "BABEL_ENV=es6 babel --out-dir es --ignore '**/__tests__/','**/enzyme.js'  src",
-        "build-umd-roll": "BABEL_ENV=umd rollup --config ./rollup.config.js",
+        "build-umd-roll": "BABEL_ENV=umd rollup --config ./rollup.config.mjs",
         "profile": "webpack --config ./webpack.config.js --profile --json > webpack-stats.json",
         "start": "BABEL_ENV=es6 webpack serve --progress --port 3000 --host 127.0.0.1 --config demo/webpack.config.js",
         "packagePatch": "npm run test && npm run build-es && npm run build-umd-roll && npm version patch && npm publish && git push -u origin master",
