@@ -1,5 +1,6 @@
 module.exports = {
 "env" : {
+
     "umd" : {
         "presets": [ 
             "@babel/preset-react", 
@@ -16,6 +17,7 @@ module.exports = {
         ],
         "plugins": [ ["@emotion", { "sourceMap":false } ] ]
     },
+
     "es6" : {
         "presets": [ 
             "@babel/preset-react", 
