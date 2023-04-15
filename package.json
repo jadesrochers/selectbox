@@ -15,9 +15,9 @@
         "LICENSE"
     ],
     "exports": {
-        "default": "./dist/selectbox-umd.js",
         "node": "./dist/selectbox-umd.js",
-        "browser": "./es/index.js"
+        "browser": "./es/index.js",
+        "default": "./dist/selectbox-umd.js"
     },
     "description": "A React Component for making interactive SVG elements",
     "keywords": [
