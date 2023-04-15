@@ -1,6 +1,6 @@
 {
     "name": "@jadesrochers/selectbox",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "license": "MIT",
     "author": "Jared Desrochers",
     "sideEffects": false,
@@ -8,7 +8,7 @@
         "type": "git",
         "url": "https://github.com/jadesrochers/selectbox.git"
     },
-    "main":  "./dist/selectbox-umd.js",
+    "main": "./dist/selectbox-umd.js",
     "exports": {
         "import": "./es/index.js",
         "require": "./dist/selectbox-umd.js",
