@@ -4,16 +4,23 @@ import * as R from 'ramda';
 import React, { useMemo } from 'react';
 /* import fm from '@jadesrochers/functionalmonads'; */
 import { passExceptChildren } from '@jadesrochers/reacthelpers'
+import styles from './selectbox.module.css'
 
 import { useTrackSvgBounds,  useSvgXSizing, useSvgYSizing, useMouseLocation, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseStatus, useMouseSelection, useSelectOffset, getEventX, getEventY } from './selections'
 
 const roundtenth = (n) => (Math.round(n*10)/10)
 
-const selectStyle={fill: '#808080', opacity: '0.3', cursor: 'crosshair'}
+// const selectStyle={fill: '#808080', opacity: '0.3', cursor: 'crosshair'}
 
 const SelectXRect = (props) => {
+  const classnames = props.classnames ? `${props.classnames.join(' ')} ${styles.selectStyle}` : styles.selectStyle
+  const transf = {
+    transform: `translate(${props.offx}px,0px)` 
+  }
   return(
     <rect 
+       className={classnames}
+       style={transf}
        css={[ selectStyle,
        {transform: `translate(${props.offx}px,0px)` },
        (props.cssStyles ? props.cssStyles : undefined)]}
@@ -24,11 +31,17 @@ const SelectXRect = (props) => {
 }
 
 const SelectYRect = (props) => {
+  const classnames = props.classnames ? `${props.classnames.join(' ')} ${styles.selectStyle}` : styles.selectStyle
+  const transf = {
+    transform: `translate(${props.offx}px,0px)` 
+  }
   return(
     <rect 
-       css={[ selectStyle,
-       {transform: `translate(0px, ${props.offy}px)` },
-       (props.cssStyles ? props.cssStyles : undefined)]}
+       className={classnames}
+       style={transf}
+       // css={[ selectStyle,
+       // {transform: `translate(0px, ${props.offy}px)` },
+       // (props.cssStyles ? props.cssStyles : undefined)]}
       width={props.width} height={props.selecty}
     >
     </rect>
@@ -36,11 +49,17 @@ const SelectYRect = (props) => {
 }
 
 const SelectXYRect = (props) => {
+  const classnames = props.classnames ? `${props.classnames.join(' ')} ${styles.selectStyle}` : styles.selectStyle
+  const transf = {
+    transform: `translate(${props.offx}px,0px)` 
+  }
   return(
       <rect 
-         css={[ selectStyle,
-         {transform: `translate(${props.offx}px,${props.offy}px)` },
-         (props.cssStyles ? props.cssStyles : undefined)]}
+       className={classnames}
+       style={transf}
+         // css={[ selectStyle,
+         // {transform: `translate(${props.offx}px,${props.offy}px)` },
+         // (props.cssStyles ? props.cssStyles : undefined)]}
         width={props.selectx} height={props.selecty}
       >
       </rect>
@@ -52,14 +71,21 @@ const SelectXYRect = (props) => {
 // changes. Part of the trackBounds hook that passes the size info elsewhere.
 const MouseRect = (props) => {
   const cursortype = props.cursor ? props.cursor : 'crosshair'
+  const cursor = {
+      cursor: cursortype,
+  } 
+  const classnames = props.classnames ? `${props.classnames.join(' ')} ${styles.mouseRectStyle}` : styles.mouseRectStyle
+ 
   return(
     <rect 
     ref={props.trackBounds.measuredRef}
     x='0' y='0'
-    css={[
-      {fill: 'none', cursor: cursortype, pointerEvents: 'all'},
-      props.cssStyles ? props.cssStyles : undefined
-      ]}
+    style={cursor}
+    className={classnames}
+    // css={[
+    //   {fill: 'none', cursor: cursortype, pointerEvents: 'all'},
+    //   props.cssStyles ? props.cssStyles : undefined
+    //   ]}
       width={props.width} height={props.height}
     >
     </rect>
@@ -144,14 +170,22 @@ const SelectBase = (props) => {
   }, [trackBounds.width, trackBounds.height])
   const pass = R.omit(['width', 'height', 'cssStyles'])(props)
   const propsToChildren = passExceptChildren({...pass, x, y, startx, starty, endx, endy, clickx, clicky, selectx, selecty, offx, offy, dragx, dragy, trackBounds, setselection, ismousedown }, props.children) 
+    const sizing = {
+        width: props.width,
+        height: props.height,
+        overflow:"hidden"
+    } 
+    const classnames = props.classnames ? props.classnames.join(' ') : styles.defaultSelectStyle
  
   return(
    <div  
       alt='base select box'
-      css={[ 
-        {width: props.width, height: props.height, overflow:"hidden"},
-         props.cssStyles ? props.cssStyles : undefined 
-        ]}
+      style={sizing}
+      className={classnames}
+      // css={[ 
+      //   {width: props.width, height: props.height, overflow:"hidden"},
+      //    props.cssStyles ? props.cssStyles : undefined 
+      //   ]}
 
       onClick={(e) => {
         const [x, y] = getEventXY(xsizehook.xsizing, ysizehook.ysizing, trackBounds, e)

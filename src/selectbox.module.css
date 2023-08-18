@@ -1,0 +1,14 @@
+.defaultSelectStyle {
+
+}
+
+.mouseRectStyle {
+    fill: none;
+    pointer-events: all;
+}
+
+.selectStyle {
+    fill: #808080;
+    opacity: 0.3;
+    cursor: crosshair;
+}

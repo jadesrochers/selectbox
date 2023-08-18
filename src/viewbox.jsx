@@ -1,8 +1,7 @@
-/** @jsx jsx */
 import React, { useMemo, useEffect } from 'react'
 import { omit } from 'ramda'
-import { css, jsx } from '@emotion/react'
 import { passExceptChildren } from '@jadesrochers/reacthelpers'
+import styles from './viewbox.module.css'
 
 
 // Viewbox needs to go within a SelectBase to get mouse information.
@@ -14,6 +13,8 @@ const ViewBoxZoomPan = (props) => {
     useEffect(()=> {
         props.pan(props.x-props.startx, props.y-props.starty, props.ismousedown) 
     }, [props.dragx, props.dragy, props.ismousedown ])
+    const location = {transform: `scale(${props.scale}) translate(${props.shiftxpct},${props.shiftypct})`}
+    const classnames = props.classnames ? props.classnames.join(' ') : styles.defaultZoomPanStyle
 
     return(
         <svg 
@@ -23,8 +24,11 @@ const ViewBoxZoomPan = (props) => {
         height={props.height} 
         viewBox={props.viewBox}
         ref={props.svgref ? props.svgref : undefined}  
-        css={[ {transform: `scale(${props.scale}) translate(${props.shiftxpct},${props.shiftypct})`},
-            (props.cssStyles ? props.cssStyles : undefined)]}
+        style={location}
+        className={classnames}
+        // css={[ {transform: `scale(${props.scale}) translate(${props.shiftxpct},${props.shiftypct})`}
+        // css={[ {transform: `scale(${props.scale}) translate(${props.shiftxpct},${props.shiftypct})`},
+            // (props.cssStyles ? props.cssStyles : undefined)]}
         >
         { propsToChildren }
         </svg>
@@ -37,6 +41,7 @@ const ViewBoxZoomPan = (props) => {
 const ViewBoxConst = (props) => {
     const pass = omit(['height','width','cssStyles'])(props)
     const propsToChildren = passExceptChildren(pass)
+    const classnames = props.classnames ? props.classnames.join(' ') : styles.defaultConstStyle
     return(
         <svg 
         key='viewbox' 
@@ -45,7 +50,8 @@ const ViewBoxConst = (props) => {
         height={props.height}
         viewBox={props.viewBox}
         ref={props.svgref ? props.svgref : undefined}
-        css={[ (props.cssStyles ? props.cssStyles : undefined)]}
+        className={classnames}
+        // css={[ (props.cssStyles ? props.cssStyles : undefined)]}
         >
         { propsToChildren }
         </svg>
