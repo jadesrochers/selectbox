@@ -1,0 +1,11 @@
+.selectbaseColor {
+  backgroundColor: #a5a4e7;
+  border: 2px solid #565656;
+}
+
+.selectbaseDisplay {
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+}
+

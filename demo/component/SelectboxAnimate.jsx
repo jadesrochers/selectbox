@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useMemo } from "react";
-import * as R from "ramda";
+import styles from "./SelectboxAnimate.module.css"
 // This is possible because of a webpack resolve alias that points
 // selectbox to ../../src/index.js
 
@@ -152,12 +152,7 @@ const SelectboxAnimate = props => {
         height="80vh"
         sizex={xsize}
         sizey={ysize}
-        cssStyles={{
-          backgroundColor: "#a5a4e7",
-          display: "flex",
-          justifyContent: "start",
-          flexDirection: "row"
-        }}
+        classnames={[styles.basecolor, styles.basedisplay]}
       >
         <ViewBoxConst
           svgref={orbitref}
@@ -170,7 +165,7 @@ const SelectboxAnimate = props => {
             key="mouserect"
             width="100%"
             height="100%"
-            cssStyles={{ stroke: "#2c3737", strokeWidth: "2px" }}
+            classnames={[styles.mouseRectStroke]}
           />
           <OrbitSvg key={'orbitsvg'} orbitref={orbitref} />
         </ViewBoxConst>

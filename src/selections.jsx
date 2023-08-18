@@ -1,4 +1,4 @@
-import  { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import * as R from 'ramda';
 import { roundtenth, roundhundth } from '@jadesrochers/reacthelpers'
 

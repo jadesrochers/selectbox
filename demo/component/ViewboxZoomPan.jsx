@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./ViewboxZoomPan.module.css"
 
 // This is possible because of a webpack resolve alias that points
 // selectbox to ../../src/index.js
@@ -45,13 +46,14 @@ const ViewboxzoompanTest = props => {
         height="70vh"
         sizex={xsize}
         sizey={ysize}
-        cssStyles={{
-          backgroundColor: "#a5a4e7",
-          display: "flex",
-          justifyContent: "start",
-          flexDirection: "row",
-          border: "2px solid #565656"
-        }}
+        classnames={[styles.selectbaseColor, styles.selectbaseDisplay]}
+        // cssStyles={{
+        //   backgroundColor: "#a5a4e7",
+        //   display: "flex",
+        //   justifyContent: "start",
+        //   flexDirection: "row",
+        //   border: "2px solid #565656"
+        // }}
         {...pass}
       >
         <ViewBoxZoomPan

@@ -8,7 +8,7 @@ import styles from './viewbox.module.css'
 // ZoomPan means it will zoom and pan the svg if zoompan hook
 // is correctly set up.
 const ViewBoxZoomPan = (props) => {
-    const pass = omit(['height','width','cssStyles'])(props)
+    const pass = omit(['height','width','classnames'])(props)
     const propsToChildren = passExceptChildren(pass)
     useEffect(()=> {
         props.pan(props.x-props.startx, props.y-props.starty, props.ismousedown) 
@@ -39,7 +39,7 @@ const ViewBoxZoomPan = (props) => {
 // The Const viewbox keeps the same svg visible as the size changes.
 // Means it scales the svg up and down with the page.
 const ViewBoxConst = (props) => {
-    const pass = omit(['height','width','cssStyles'])(props)
+    const pass = omit(['height','width','classnames'])(props)
     const propsToChildren = passExceptChildren(pass)
     const classnames = props.classnames ? props.classnames.join(' ') : styles.defaultConstStyle
     return(

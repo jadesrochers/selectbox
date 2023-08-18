@@ -1,8 +1,5 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react'
 import * as R from 'ramda';
 import React, { useMemo } from 'react';
-/* import fm from '@jadesrochers/functionalmonads'; */
 import { passExceptChildren } from '@jadesrochers/reacthelpers'
 import styles from './selectbox.module.css'
 
@@ -13,7 +10,7 @@ const roundtenth = (n) => (Math.round(n*10)/10)
 // const selectStyle={fill: '#808080', opacity: '0.3', cursor: 'crosshair'}
 
 const SelectXRect = (props) => {
-  const classnames = props.classnames ? `${props.classnames.join(' ')} ${styles.selectStyle}` : styles.selectStyle
+  const classnames = props.classnames ? `${props.classnames.join(' ')}` : styles.selectStyle
   const transf = {
     transform: `translate(${props.offx}px,0px)` 
   }
@@ -21,19 +18,19 @@ const SelectXRect = (props) => {
     <rect 
        className={classnames}
        style={transf}
-       css={[ selectStyle,
-       {transform: `translate(${props.offx}px,0px)` },
-       (props.cssStyles ? props.cssStyles : undefined)]}
-      width={props.selectx} height={props.height}
+       // css={[ selectStyle,
+       // {transform: `translate(${props.offx}px,0px)` },
+       // (props.cssStyles ? props.cssStyles : undefined)]}
+       width={props.selectx} height={props.height}
     >
     </rect>
   )
 }
 
 const SelectYRect = (props) => {
-  const classnames = props.classnames ? `${props.classnames.join(' ')} ${styles.selectStyle}` : styles.selectStyle
+  const classnames = props.classnames ? `${props.classnames.join(' ')}` : styles.selectStyle
   const transf = {
-    transform: `translate(${props.offx}px,0px)` 
+    transform: `translate(0px, ${props.offy}px)`
   }
   return(
     <rect 
@@ -49,9 +46,9 @@ const SelectYRect = (props) => {
 }
 
 const SelectXYRect = (props) => {
-  const classnames = props.classnames ? `${props.classnames.join(' ')} ${styles.selectStyle}` : styles.selectStyle
+  const classnames = props.classnames ? `${props.classnames.join(' ')}` : styles.selectStyle
   const transf = {
-    transform: `translate(${props.offx}px,0px)` 
+    transform: `translate(${props.offx}px, ${props.offy}px)`
   }
   return(
       <rect 
@@ -168,7 +165,7 @@ const SelectBase = (props) => {
     xsizehook.calcxscale(props.sizex, trackBounds.width)
     ysizehook.calcyscale(props.sizey, trackBounds.height)
   }, [trackBounds.width, trackBounds.height])
-  const pass = R.omit(['width', 'height', 'cssStyles'])(props)
+  const pass = R.omit(['width', 'height', 'classnames'])(props)
   const propsToChildren = passExceptChildren({...pass, x, y, startx, starty, endx, endy, clickx, clicky, selectx, selecty, offx, offy, dragx, dragy, trackBounds, setselection, ismousedown }, props.children) 
     const sizing = {
         width: props.width,

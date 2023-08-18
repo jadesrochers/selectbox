@@ -1,0 +1,14 @@
+.basecolor {
+  backgroundColor: #a5a4e7;
+}
+
+.basediplay {
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+}
+
+.mouseRectStroke {
+  stroke: #2c3737;
+  stroke-width: 2px; 
+}

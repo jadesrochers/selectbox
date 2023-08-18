@@ -1,6 +1,7 @@
 import React from "react";
 // This is possible because of a webpack resolve alias that points
 // selectbox to ../../src/index.js
+import styles from "./Selectbox.module.css"
 
 import { SelectBase, ViewBoxConst, SelectXRect, SelectYRect, SelectXYRect, MouseRect } from "selectbox";
 
@@ -31,27 +32,18 @@ const SelectTest = props => {
         height='80vh'
         sizex={sizex}
         sizey={sizey}
-        cssStyles={{
-          backgroundColor: "#a5a4e7",
-          border: "2px solid black",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "row"
-        }}
+        classnames={[styles.selectBaseColor, styles.selectBaseDisplay]}
       >
         <ViewBoxConst
           key="viewbox"
           width={"100%"}
           height={"100%"}
           viewBox={`0 0 ${sizex} ${sizey}`}
-          cssStyles={{
-            outline: "2px solid #1b2477"
-          }}
+          classnames={[styles.viewboxColor]}
         >
-          <SelectXRect height="100px" cssStyles={{ fill: "red" }} />
-          <SelectYRect width="100px" cssStyles={{ fill: "green" }} />
-          <SelectXYRect cssStyles={{ fill: "blue" }} />
+          <SelectXRect height="100px" classnames={[styles.xrect]} />
+          <SelectYRect width="100px" classnames={[styles.yrect]} />
+          <SelectXYRect classnames={[styles.xyrect]} />
           <Textdisplay />
           <MouseRect width="99%" height="99%" />
         </ViewBoxConst>

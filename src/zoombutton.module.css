@@ -1,0 +1,53 @@
+.activeState {
+  &:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+  }
+}
+
+.hoverCirc {
+  &:hover svg circle {
+    stroke: hsl(220,85%,15%);
+  }
+}
+
+.hoverPath {
+  &:hover svg path {
+    fill: #f2f3f4;  
+  }
+}
+
+/* background: none is critical to wipeout default button coloring */
+.baseStyle {
+  margin: 3px;
+  padding: 0;
+  border: 0;
+  width: 55px;
+  height: 55px;
+  background: none;
+  pointer-events: all;
+}
+
+.symbolSvgDefaults {
+  height: 95%;
+  padding: 1px;
+  shape-rendering:geometricPrecision;
+}
+
+.plusCircleDefaults {
+  stroke: hsl(210,85%,30%);
+  fill: #3498db;
+}
+
+.minusPathFill {
+  fill: #212f3c;
+}
+
+.minusCircleDefaults {
+  stroke: hsl(210,85%,30%);
+  fill: #3498db;
+}
+
+.plusPathFill {
+  fill: #212f3c;
+}
