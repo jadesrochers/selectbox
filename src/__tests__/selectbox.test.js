@@ -1,12 +1,9 @@
 import React from 'react';
 import * as R from 'ramda';
-import { matchers } from '@emotion/jest'
 import { render, screen, act } from '@testing-library/react'
 import { SelectBase, SelectXYRect, SetBarxLimits, SelectXRect, SelectYRect } from '../selectbox'
 import { SvgWrapper } from '@jadesrochers/reacthelpers'
 
-// Adds emotion matcher directly to jest.
-expect.extend(matchers)
 
 describe('SelectBase tests', () => {
   test('Create a selectbase with a selectXYrect inside and move around', () => {

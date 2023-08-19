@@ -8,7 +8,7 @@ const path = require('path');
 // Webpack will still include a ref to it, so you need the externals:
 // statement for sure.
 const config = {
-    entry: './src/index.js',
+    entry: './src/index.mjs',
 
     mode: 'production',
 
@@ -35,6 +35,11 @@ const config = {
                     loader: 'babel-loader',
                 }
             },
+            {
+                test: /\.css$/i,
+                exclude: /node_modules/,
+                use: ['style-loader', 'css-loader'],
+            },
         ],
     },
 
@@ -47,7 +52,6 @@ const config = {
         },
         'ramda': 'ramda', 
         '@jadesrochers/reacthelpers': '@jadesrochers/reacthelpers', 
-        '@emotion/react':'@emotion/react',
     },
 
 }

@@ -1,9 +1,6 @@
 import React from 'react';
 import { ViewBoxZoomPan, ViewBoxConst } from '../viewbox';
 import { render, screen } from '@testing-library/react'
-import { matchers } from '@emotion/jest'
-
-expect.extend(matchers)
 
 
 describe('Viewbox tests', () => {

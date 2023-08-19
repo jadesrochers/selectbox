@@ -1,10 +1,8 @@
 import React from 'react';
 import { render, screen, renderHook, act } from '@testing-library/react'
 import { useZoomPan } from '../zoom';
-import { matchers } from '@emotion/jest'
 import { HookWrapper, HookForceWrapper } from '@jadesrochers/reacthelpers'
 
-expect.extend(matchers)
 
 describe('useZoom hook tests', () => {
 
