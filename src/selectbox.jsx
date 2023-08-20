@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { passExceptChildren } from '@jadesrochers/reacthelpers';
 import styles from "./selectbox.module.css";
 
-import { useTrackSvgBounds,  useSvgXSizing, useSvgYSizing, useMouseLocation, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseStatus, useMouseSelection, useSelectOffset, getEventX, getEventY } from './selections'
+import { useTrackSvgBounds,  useSvgXSizing, useSvgYSizing, useMouseLocation, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseStatus, useMouseSelection, useSelectOffset, getEventX, getEventY } from './selections.jsx'
 
 const roundtenth = (n) => (Math.round(n*10)/10)
 
