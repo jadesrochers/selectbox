@@ -42,7 +42,7 @@ const config = {
 
     resolve: {
         alias: {
-            selectbox: path.join(__dirname, '..', 'src/index'),
+            selectbox: path.join(__dirname, '..', 'src/index.mjs'),
         },
         extensions: ['.mjs', '.js', '.jsx', '.json'],
     },

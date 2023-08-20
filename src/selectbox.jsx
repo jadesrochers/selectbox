@@ -1,26 +1,22 @@
 import * as R from 'ramda';
 import React, { useMemo } from 'react';
-import { passExceptChildren } from '@jadesrochers/reacthelpers'
-import styles from './selectbox.module.css'
+import { passExceptChildren } from '@jadesrochers/reacthelpers';
+import styles from "./selectbox.module.css";
 
 import { useTrackSvgBounds,  useSvgXSizing, useSvgYSizing, useMouseLocation, useMouseDownLocation, useMouseUpLocation, useMouseClickLocation, useMouseStatus, useMouseSelection, useSelectOffset, getEventX, getEventY } from './selections'
 
 const roundtenth = (n) => (Math.round(n*10)/10)
 
-// const selectStyle={fill: '#808080', opacity: '0.3', cursor: 'crosshair'}
 
 const SelectXRect = (props) => {
-  const classnames = props.classnames ? `${props.classnames.join(' ')}` : styles.selectStyle
+  const classnames = props.classnames ? `${styles.selectStyle} ${props.classnames.join(' ')}` : styles.selectStyle
   const transf = {
-    transform: `translate(${props.offx}px,0px)` 
+    transform: `translate(${props.offx}px,0px)`,
   }
   return(
     <rect 
        className={classnames}
        style={transf}
-       // css={[ selectStyle,
-       // {transform: `translate(${props.offx}px,0px)` },
-       // (props.cssStyles ? props.cssStyles : undefined)]}
        width={props.selectx} height={props.height}
     >
     </rect>
@@ -28,7 +24,7 @@ const SelectXRect = (props) => {
 }
 
 const SelectYRect = (props) => {
-  const classnames = props.classnames ? `${props.classnames.join(' ')}` : styles.selectStyle
+  const classnames = props.classnames ? `${styles.selectStyle} ${props.classnames.join(' ')}` : styles.selectStyle
   const transf = {
     transform: `translate(0px, ${props.offy}px)`
   }
@@ -36,17 +32,14 @@ const SelectYRect = (props) => {
     <rect 
        className={classnames}
        style={transf}
-       // css={[ selectStyle,
-       // {transform: `translate(0px, ${props.offy}px)` },
-       // (props.cssStyles ? props.cssStyles : undefined)]}
-      width={props.width} height={props.selecty}
+       width={props.width} height={props.selecty}
     >
     </rect>
   )
 }
 
 const SelectXYRect = (props) => {
-  const classnames = props.classnames ? `${props.classnames.join(' ')}` : styles.selectStyle
+  const classnames = props.classnames ? `${styles.selectStyle} ${props.classnames.join(' ')}` : styles.selectStyle
   const transf = {
     transform: `translate(${props.offx}px, ${props.offy}px)`
   }
@@ -54,10 +47,7 @@ const SelectXYRect = (props) => {
       <rect 
        className={classnames}
        style={transf}
-         // css={[ selectStyle,
-         // {transform: `translate(${props.offx}px,${props.offy}px)` },
-         // (props.cssStyles ? props.cssStyles : undefined)]}
-        width={props.selectx} height={props.selecty}
+       width={props.selectx} height={props.selecty}
       >
       </rect>
   )
@@ -71,7 +61,8 @@ const MouseRect = (props) => {
   const cursor = {
       cursor: cursortype,
   } 
-  const classnames = props.classnames ? `${props.classnames.join(' ')} ${styles.mouseRectStyle}` : styles.mouseRectStyle
+  const classnames = props.classnames ? `${styles.mouseRectStyle} ${props.classnames.join(' ')}` : styles.mouseRectStyle
+  // const classnames = props.classnames ? `${props.classnames.join(' ')}` : styles.defaultSelectStyle
  
   return(
     <rect 
@@ -79,10 +70,6 @@ const MouseRect = (props) => {
     x='0' y='0'
     style={cursor}
     className={classnames}
-    // css={[
-    //   {fill: 'none', cursor: cursortype, pointerEvents: 'all'},
-    //   props.cssStyles ? props.cssStyles : undefined
-    //   ]}
       width={props.width} height={props.height}
     >
     </rect>

@@ -16,19 +16,13 @@
 
 /* The double name is to force override the default */
 .xrect {
-  fill: red;
-  opacity: 0.3;
-  cursor: crosshair;
+  fill: red !important;
 }
 
 .yrect {
-  fill: green;
-  opacity: 0.3;
-  cursor: crosshair;
+  fill: green !important;
 }
 
 .xyrect {
-  fill: blue;
-  opacity: 0.3;
-  cursor: crosshair;
+  fill: blue !important;
 }
