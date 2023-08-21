@@ -25,7 +25,7 @@ export default {
                 sourceMap: true,
                 extract: true,
                 minimize: true
-            }),
+        }),
         nodeResolve(),
         commonjs(),
         terser(),
