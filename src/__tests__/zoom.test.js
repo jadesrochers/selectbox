@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen, renderHook, act } from '@testing-library/react'
 import { useZoomPan } from '../zoom';
-import { HookWrapper, HookForceWrapper } from '@jadesrochers/reacthelpers'
 
 
 describe('useZoom hook tests', () => {

@@ -47,7 +47,7 @@
         ]
     },
     "dependencies": {
-        "@jadesrochers/reacthelpers": "^0.4.0",
+        "@jadesrochers/reacthelpers": "^0.5.0",
         "ramda": "^0.28.0"
     },
     "peerdependencies": {

@@ -2,7 +2,16 @@ import React from 'react';
 import * as R from 'ramda';
 import { render, screen, act } from '@testing-library/react'
 import { SelectBase, SelectXYRect, SetBarxLimits, SelectXRect, SelectYRect } from '../selectbox'
-import { SvgWrapper } from '@jadesrochers/reacthelpers'
+import { passExceptChildren } from '@jadesrochers/reacthelpers'
+
+const SvgWrapper = (props) => {
+  const propsToChildren = passExceptChildren(props)
+  return (
+   <svg>
+     { propsToChildren }
+   </svg>
+  )
+}
 
 
 describe('SelectBase tests', () => {
