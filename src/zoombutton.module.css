@@ -18,12 +18,15 @@
 }
 
 /* background: none is critical to wipeout default button coloring */
+.defaultSize {
+  width: 55px;
+  height: 55px;
+}
+
 .baseStyle {
   margin: 3px;
   padding: 0;
   border: 0;
-  width: 55px;
-  height: 55px;
   background: none;
   pointer-events: all;
 }

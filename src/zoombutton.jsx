@@ -36,7 +36,7 @@ const MinusCircle = (props) => {
 /* width:'122px',height:'60px', */
 const ZoomButtons = (props) => {
     const defaultClasses = `${styles.baseStyle} ${styles.activeState} ${styles.hoverCirc} ${styles.hoverPath}`
-    const classNames = props.classnames ? `${props.classnames.join(' ')} ${defaultClasses}` : defaultClasses
+    const classNames = props.classnames ? `${props.classnames.join(' ')} ${defaultClasses}` : `${styles.defaultSize} ${defaultClasses}`
 
   return(
    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }} >

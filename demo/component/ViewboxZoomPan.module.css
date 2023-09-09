@@ -9,3 +9,13 @@
   flex-direction: row;
 }
 
+.zoomButtonSize {
+  width: 35px;
+  height: 35px;
+  margin: 3px;
+  padding: 0;
+  border: 0;
+  background: none;
+  pointer-events: all;
+}
+

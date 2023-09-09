@@ -66,7 +66,10 @@ const ViewboxzoompanTest = props => {
           <SelectDemo key="SelectDemo" />
         </ViewBoxZoomPan>
       </SelectBase>
-      <ZoomButtons {...pass} />
+      <ZoomButtons 
+        classnames={[styles.zoomButtonSize]} 
+        {...pass} 
+      />
     </div>
   );
 };
